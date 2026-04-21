@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjlhdaj3yf8r2"]
+
+[ext_resource type="Script" path="res://entidades/prota.gd" id="1_d1bcy"]
+[ext_resource type="Texture2D" uid="uid://cn14c5wf0sx5g" path="res://icon.svg" id="2_bclq2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8i4m"]
+size = Vector2(55, 55)
+
+[node name="prota" type="CharacterBody2D"]
+position = Vector2(399, 216)
+script = ExtResource("1_d1bcy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.484375, 0.484375)
+texture = ExtResource("2_bclq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_l8i4m")
