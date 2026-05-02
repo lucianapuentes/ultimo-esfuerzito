@@ -1,8 +1,8 @@
 [gd_scene load_steps=43 format=3 uid="uid://cjlhdaj3yf8r2"]
 
 [ext_resource type="Script" path="res://entidades/prota.gd" id="1_d1bcy"]
-[ext_resource type="Texture2D" uid="uid://bmuj2tcwfcsnt" path="res://Eris Esra's Character Template 4.0/16x16/16x16 Walk-Sheet.png" id="2_vogh5"]
 [ext_resource type="Script" path="res://HurtBox.gd" id="3_dgw0f"]
+[ext_resource type="Texture2D" uid="uid://bbob5rewujv4e" path="res://16x16 Walk-Sheet.png" id="3_mhfbm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lcy7o"]
 radius = 14.0
@@ -429,7 +429,7 @@ debug_color = Color(0.850752, 0, 0.0153779, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="HurtBox"]
 scale = Vector2(2, 2)
-texture = ExtResource("2_vogh5")
+texture = ExtResource("3_mhfbm")
 flip_h = true
 hframes = 4
 vframes = 5
