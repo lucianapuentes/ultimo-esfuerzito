@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dgd6hj1orb16k"]
+
+[ext_resource type="Script" uid="uid://cau5i72vb0afr" path="res://proyectil.gd" id="1_m3cyk"]
+[ext_resource type="Texture2D" uid="uid://cfok4v3v20uvi" path="res://numSprites/Number0 7x10.png" id="2_4dc7l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ywll5"]
+radius = 4.0
+
+[node name="Proyectil" type="CharacterBody2D" unique_id=1843771128]
+script = ExtResource("1_m3cyk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=698803245]
+texture = ExtResource("2_4dc7l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=556646264]
+shape = SubResource("CircleShape2D_ywll5")
