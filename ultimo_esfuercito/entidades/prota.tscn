@@ -1,7 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://cjlhdaj3yf8r2"]
+[gd_scene format=3 uid="uid://cjlhdaj3yf8r2"]
 
-[ext_resource type="Script" path="res://entidades/prota.gd" id="1_d1bcy"]
-[ext_resource type="Script" path="res://HurtBox.gd" id="3_dgw0f"]
+[ext_resource type="Script" uid="uid://cofsnih7i5i08" path="res://entidades/prota.gd" id="1_d1bcy"]
+[ext_resource type="Script" uid="uid://du3k0vhti3row" path="res://entidades/HurtBox.gd" id="3_dgw0f"]
 [ext_resource type="Texture2D" uid="uid://bbob5rewujv4e" path="res://16x16 Walk-Sheet.png" id="3_mhfbm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lcy7o"]
@@ -385,49 +385,48 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8hg6p"]
 _data = {
-"RESET": SubResource("Animation_2ctt5"),
-"idle": SubResource("Animation_db2rj"),
-"walk_down": SubResource("Animation_jrkc3"),
-"walk_down_left": SubResource("Animation_kp74d"),
-"walk_down_right": SubResource("Animation_qeg1s"),
-"walk_left": SubResource("Animation_2amco"),
-"walk_right": SubResource("Animation_7qxue"),
-"walk_up": SubResource("Animation_h6vfc"),
-"walk_up_left": SubResource("Animation_gjo4w"),
-"walk_up_right": SubResource("Animation_ddxg1")
+&"RESET": SubResource("Animation_2ctt5"),
+&"idle": SubResource("Animation_db2rj"),
+&"walk_down": SubResource("Animation_jrkc3"),
+&"walk_down_left": SubResource("Animation_kp74d"),
+&"walk_down_right": SubResource("Animation_qeg1s"),
+&"walk_left": SubResource("Animation_2amco"),
+&"walk_right": SubResource("Animation_7qxue"),
+&"walk_up": SubResource("Animation_h6vfc"),
+&"walk_up_left": SubResource("Animation_gjo4w"),
+&"walk_up_right": SubResource("Animation_ddxg1")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hf8rt"]
 size = Vector2(10, 21)
 
-[node name="prota" type="CharacterBody2D"]
+[node name="prota" type="CharacterBody2D" unique_id=530882632]
 position = Vector2(399, 216)
+collision_layer = 5
 script = ExtResource("1_d1bcy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1220265748]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_lcy7o")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1290359153]
 tree_root = SubResource("AnimationNodeStateMachine_iyxr4")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(-0.00120336, -0.0217391)
 parameters/Walk/blend_position = Vector2(0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_8hg6p")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1060054168]
+libraries/ = SubResource("AnimationLibrary_8hg6p")
 
-[node name="HurtBox" type="Area2D" parent="."]
+[node name="HurtBox" type="Area2D" parent="." unique_id=1753802363]
 script = ExtResource("3_dgw0f")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=203239909]
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_hf8rt")
 debug_color = Color(0.850752, 0, 0.0153779, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="HurtBox"]
+[node name="Sprite2D" type="Sprite2D" parent="HurtBox" unique_id=681560053]
 scale = Vector2(2, 2)
 texture = ExtResource("3_mhfbm")
 flip_h = true
