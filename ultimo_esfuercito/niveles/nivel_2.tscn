@@ -152,4 +152,9 @@ tile_set = SubResource("TileSet_ucysf")
 position = Vector2(153, 85)
 contenedor_balas = NodePath("../Balas")
 
+[node name="Camera2D" type="Camera2D" parent="prota" unique_id=1445921749]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
 [node name="Balas" parent="." unique_id=863857919 instance=ExtResource("3_ucysf")]

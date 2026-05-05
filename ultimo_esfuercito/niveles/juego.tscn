@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://1cfyk48oww6k" path="res://entidades/espadita.tscn" id="3_dni3u"]
 [ext_resource type="PackedScene" uid="uid://bsoeemh0g81v0" path="res://niveles/puerta.tscn" id="4_y6em5"]
 [ext_resource type="PackedScene" uid="uid://dcvepbqfg5sau" path="res://entidades/balas.tscn" id="5_dni3u"]
+[ext_resource type="PackedScene" uid="uid://dgfdl3kgum7pf" path="res://niveles/nivel_2.tscn" id="7_y6em5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t87f2"]
+texture = ExtResource("1_5gtvc")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -293,7 +295,7 @@ tile_set = SubResource("TileSet_u863i")
 
 [node name="prota" parent="." unique_id=1615826186 node_paths=PackedStringArray("contenedor_balas") instance=ExtResource("2_hlwja")]
 position = Vector2(158, 95)
-contenedor_balas = NodePath("")
+contenedor_balas = NodePath("../Balas")
 
 [node name="Camera2D" type="Camera2D" parent="prota" unique_id=1770993009]
 position_smoothing_enabled = true
@@ -307,5 +309,6 @@ position = Vector2(47, 64)
 
 [node name="puerta" parent="." unique_id=472903741 instance=ExtResource("4_y6em5")]
 position = Vector2(303, 30)
+proxima_escena = ExtResource("7_y6em5")
 
 [connection signal="puerta_pisada" from="puerta" to="." method="_on_puerta_puerta_pisada"]

@@ -12,5 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_puerta_puerta_pisada(proxima_escena: Variant) -> void:
-	get_tree().change_scene_to_packed(proxima_escena)
-	pass # Replace with function body.
+	get_tree().call_deferred("change_scene_to_packed",proxima_escena)

@@ -1,6 +1,6 @@
 extends Area2D
 
-const proxima_escena = preload("res://niveles/nivel_2.tscn") 
+@export var proxima_escena: PackedScene
 signal puerta_pisada(proxima_escena)
 
 # Called when the node enters the scene tree for the first time.
