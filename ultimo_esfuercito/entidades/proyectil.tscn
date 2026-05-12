@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cau5i72vb0afr" path="res://entidades/proyectil.gd" id="1_m3cyk"]
 [ext_resource type="Texture2D" uid="uid://cfok4v3v20uvi" path="res://numSprites/Number0 7x10.png" id="2_4dc7l"]
+[ext_resource type="Script" uid="uid://b1comvabhhvfu" path="res://entidades/Hitbox.gd" id="3_4dc7l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ywll5"]
 radius = 4.0
@@ -12,5 +13,9 @@ script = ExtResource("1_m3cyk")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=698803245]
 texture = ExtResource("2_4dc7l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=556646264]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1269518728]
+script = ExtResource("3_4dc7l")
+metadata/_custom_type_script = "uid://b1comvabhhvfu"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=556646264]
 shape = SubResource("CircleShape2D_ywll5")

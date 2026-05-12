@@ -1,25 +1,22 @@
 [gd_scene format=3 uid="uid://1cfyk48oww6k"]
 
 [ext_resource type="Texture2D" uid="uid://raod288ktxmb" path="res://kenney_tiny-dungeon/Tiles/tile_0103.png" id="1_pxg3f"]
-[ext_resource type="Script" uid="uid://b1comvabhhvfu" path="res://entidades/Hitbox.gd" id="2_jxjbt"]
+[ext_resource type="Script" uid="uid://du3k0vhti3row" path="res://entidades/HurtBox.gd" id="2_ygour"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpasj"]
-size = Vector2(2.90909, 8.53333)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygour"]
+size = Vector2(19, 36)
 
 [node name="Espadita" type="Node2D" unique_id=1445852123]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1194407798]
-position = Vector2(25, 22)
 scale = Vector2(4.125, 3.75)
 texture = ExtResource("1_pxg3f")
 
-[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1992477089]
-collision_layer = 2
-collision_mask = 0
+[node name="HurtBox" type="Area2D" parent="." unique_id=770599286]
+script = ExtResource("2_ygour")
+propietario = "enemigo"
+metadata/_custom_type_script = "uid://du3k0vhti3row"
 
-[node name="Hitbox" type="Area2D" parent="Sprite2D" unique_id=154126504]
-script = ExtResource("2_jxjbt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Hitbox" unique_id=815542273]
-position = Vector2(9.53674e-07, 0.266667)
-shape = SubResource("RectangleShape2D_vpasj")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1265269202]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_ygour")
