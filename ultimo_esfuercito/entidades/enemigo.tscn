@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://wxckjrpwolf"]
+
+[ext_resource type="Script" uid="uid://c15lg215w56af" path="res://entidades/enemigo.gd" id="1_qp0j2"]
+[ext_resource type="Texture2D" uid="uid://cn14c5wf0sx5g" path="res://icon.svg" id="2_2o2c4"]
+[ext_resource type="Script" uid="uid://du3k0vhti3row" path="res://entidades/HurtBox.gd" id="3_2o2c4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_moi64"]
+radius = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2o2c4"]
+size = Vector2(71, 55)
+
+[node name="Enemigo" type="CharacterBody2D" unique_id=1866036199]
+script = ExtResource("1_qp0j2")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=390082705]
+path_desired_distance = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=328836541]
+scale = Vector2(0.37500003, 0.28906253)
+texture = ExtResource("2_2o2c4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=505126173]
+shape = SubResource("CircleShape2D_moi64")
+debug_color = Color(0.7930732, 0.33981517, 0.66692126, 0.41960785)
+
+[node name="Timer" type="Timer" parent="." unique_id=1111069704]
+wait_time = 0.5
+autostart = true
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1053001245]
+script = ExtResource("3_2o2c4")
+propietario = "enemigo"
+metadata/_custom_type_script = "uid://du3k0vhti3row"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=334471429]
+position = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_2o2c4")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

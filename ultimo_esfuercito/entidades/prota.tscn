@@ -400,7 +400,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hf8rt"]
 size = Vector2(10, 21)
 
-[node name="prota" type="CharacterBody2D" unique_id=530882632]
+[node name="prota" type="CharacterBody2D" unique_id=530882632 groups=["player"]]
 position = Vector2(399, 216)
 collision_layer = 5
 script = ExtResource("1_d1bcy")
