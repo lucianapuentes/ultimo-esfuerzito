@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://raod288ktxmb" path="res://kenney_tiny-dungeon/Tiles/tile_0103.png" id="1_pxg3f"]
 [ext_resource type="Script" uid="uid://du3k0vhti3row" path="res://entidades/HurtBox.gd" id="2_ygour"]
+[ext_resource type="Script" uid="uid://b1comvabhhvfu" path="res://entidades/Hitbox.gd" id="3_ef2tt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygour"]
 size = Vector2(19, 36)
@@ -17,6 +18,11 @@ script = ExtResource("2_ygour")
 propietario = "enemigo"
 metadata/_custom_type_script = "uid://du3k0vhti3row"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1265269202]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1003277955]
+script = ExtResource("3_ef2tt")
+propietario = "enemigo"
+metadata/_custom_type_script = "uid://b1comvabhhvfu"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1265269202]
 position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_ygour")

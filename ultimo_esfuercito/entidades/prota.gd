@@ -6,6 +6,10 @@ const SPEED = 150.0
 const Proyectil = preload("res://entidades/proyectil.tscn")  # ajustá la ruta
 var ultima_direccion := Vector2.RIGHT 
 @export var contenedor_balas: Node  
+signal lower_health
+signal gain_health
+
+
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("izquierda", "derecha", "arriba", "abajo", -1.0)
 	if direction:
@@ -18,13 +22,13 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 		anim_state.travel("Idle")
 	move_and_slide()
-
-	# Disparo acá, no en _input
 	if Input.is_action_just_pressed("ataque"):
 		disparar()
-func take_damage(damage: int) -> void:
-	print("me dolio una banda")
-	pass
+
+
+
+
+
 func disparar() -> void:
 	if contenedor_balas == null:
 		print("ERROR: contenedor_balas no asignado en el Inspector")
@@ -35,5 +39,19 @@ func disparar() -> void:
 	# Offset para que no spawne dentro del personaje
 	bala.global_position = global_position + ultima_direccion.normalized() * 20
 	contenedor_balas.add_child(bala)
+
+
 func _ready() -> void:
 	add_to_group("jugador")  # ← esto
+
+
+func _on_health_handler_entity_died() -> void:
+	pass # Replace with function body.
+
+
+func _on_health_handler_damage_taken(current_health:float) -> void:
+	lower_health.emit(current_health)
+
+
+func _on_health_handler_health_restored(current_health: float) -> void:
+	gain_health.emit(current_health)

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cofsnih7i5i08" path="res://entidades/prota.gd" id="1_d1bcy"]
 [ext_resource type="Script" uid="uid://du3k0vhti3row" path="res://entidades/HurtBox.gd" id="3_dgw0f"]
 [ext_resource type="Texture2D" uid="uid://bbob5rewujv4e" path="res://16x16 Walk-Sheet.png" id="3_mhfbm"]
+[ext_resource type="Script" uid="uid://b6x7jijvyk0xh" path="res://entidades/health_handler.gd" id="4_e6ndg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lcy7o"]
 radius = 14.0
@@ -433,3 +434,11 @@ script = ExtResource("3_dgw0f")
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_hf8rt")
 debug_color = Color(0.850752, 0, 0.0153779, 1)
+
+[node name="HealthHandler" type="Node" parent="." unique_id=1194610773]
+script = ExtResource("4_e6ndg")
+
+[connection signal="entity_hit" from="HurtBox" to="HealthHandler" method="take_damage"]
+[connection signal="damage_taken" from="HealthHandler" to="." method="_on_health_handler_damage_taken"]
+[connection signal="entity_died" from="HealthHandler" to="." method="_on_health_handler_entity_died"]
+[connection signal="health_restored" from="HealthHandler" to="." method="_on_health_handler_health_restored"]

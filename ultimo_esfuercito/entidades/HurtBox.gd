@@ -1,6 +1,6 @@
 class_name HurtBox
 extends Area2D
-
+signal entity_hit(damage: float)
 @export_enum("jugador", "enemigo") var propietario : String = "jugador"
 
 func _init() -> void:
@@ -14,7 +14,5 @@ func _on_area_entered(hitbox: Hitbox) -> void:
 	if hitbox == null or propietario == hitbox.propietario:
 		return
 		
-	if owner.has_method("take_damage"):
-		owner.take_damage(hitbox.damage)
-	print("aia")
+	entity_hit.emit(hitbox.damage)
 	

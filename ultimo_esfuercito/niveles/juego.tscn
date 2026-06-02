@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dcvepbqfg5sau" path="res://entidades/balas.tscn" id="5_dni3u"]
 [ext_resource type="PackedScene" uid="uid://dgfdl3kgum7pf" path="res://niveles/nivel_2.tscn" id="7_y6em5"]
 [ext_resource type="PackedScene" uid="uid://wxckjrpwolf" path="res://entidades/enemigo.tscn" id="8_5wc5f"]
+[ext_resource type="Script" uid="uid://cvgywae42igbg" path="res://niveles/health_bar.gd" id="9_xslyq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y6em5"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -187,4 +188,15 @@ proxima_escena = ExtResource("7_y6em5")
 [node name="Enemigo" parent="." unique_id=1866036199 instance=ExtResource("8_5wc5f")]
 position = Vector2(-93, 129)
 
+[node name="HUD" type="CanvasLayer" parent="." unique_id=449056204]
+
+[node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=33892678]
+offset_left = -3.0
+offset_top = 2.0
+offset_right = 52.0
+offset_bottom = 29.0
+script = ExtResource("9_xslyq")
+
+[connection signal="gain_health" from="prota" to="HUD/HealthBar" method="increase_health"]
+[connection signal="lower_health" from="prota" to="HUD/HealthBar" method="decrease_health"]
 [connection signal="puerta_pisada" from="puerta" to="." method="_on_puerta_puerta_pisada"]
