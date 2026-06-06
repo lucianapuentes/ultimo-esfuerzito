@@ -1,13 +1,15 @@
 extends CharacterBody2D
 
+signal lower_health(value : float)
+signal gain_health(value : float)
+
 @onready var anim_tree = $AnimationTree
 @onready var anim_state = anim_tree.get("parameters/playback")
+
 const SPEED = 150.0
 const Proyectil = preload("res://entidades/proyectil.tscn")  # ajustá la ruta
+
 var ultima_direccion := Vector2.RIGHT 
-@export var contenedor_balas: Node  
-signal lower_health
-signal gain_health
 
 
 func _physics_process(delta: float) -> void:
@@ -30,15 +32,12 @@ func _physics_process(delta: float) -> void:
 
 
 func disparar() -> void:
-	if contenedor_balas == null:
-		print("ERROR: contenedor_balas no asignado en el Inspector")
-		return
 	var bala = Proyectil.instantiate()
 	bala.direccion = ultima_direccion.normalized()
 	bala.numero = randi() % 10
 	# Offset para que no spawne dentro del personaje
 	bala.global_position = global_position + ultima_direccion.normalized() * 20
-	contenedor_balas.add_child(bala)
+	get_tree().root.add_child(bala)
 
 
 func _ready() -> void:

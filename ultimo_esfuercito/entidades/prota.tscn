@@ -5,9 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bbob5rewujv4e" path="res://16x16 Walk-Sheet.png" id="3_mhfbm"]
 [ext_resource type="Script" uid="uid://b6x7jijvyk0xh" path="res://entidades/health_handler.gd" id="4_e6ndg"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lcy7o"]
-radius = 14.0
-height = 42.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6ndg"]
+size = Vector2(8, 4)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_moi64"]
 animation = &"idle"
@@ -399,16 +398,15 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hf8rt"]
-size = Vector2(10, 21)
+size = Vector2(4, 10)
 
 [node name="prota" type="CharacterBody2D" unique_id=530882632 groups=["player"]]
-position = Vector2(399, 216)
 collision_layer = 5
 script = ExtResource("1_d1bcy")
 
 [node name="paredes" type="CollisionShape2D" parent="." unique_id=1220265748]
-position = Vector2(0, 4)
-shape = SubResource("CapsuleShape2D_lcy7o")
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_e6ndg")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1290359153]
 tree_root = SubResource("AnimationNodeStateMachine_iyxr4")
@@ -420,7 +418,6 @@ parameters/Walk/blend_position = Vector2(0, 0)
 libraries/ = SubResource("AnimationLibrary_8hg6p")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=681560053]
-scale = Vector2(2, 2)
 texture = ExtResource("3_mhfbm")
 flip_h = true
 hframes = 4
@@ -431,9 +428,9 @@ frame = 16
 script = ExtResource("3_dgw0f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=203239909]
-position = Vector2(0, 5.5)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_hf8rt")
-debug_color = Color(0.850752, 0, 0.0153779, 1)
+debug_color = Color(0.85, 0, 0.014166451, 0.40392157)
 
 [node name="HealthHandler" type="Node" parent="." unique_id=1194610773]
 script = ExtResource("4_e6ndg")

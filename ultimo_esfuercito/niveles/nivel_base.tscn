@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bofmm725b0ur"]
+
+[ext_resource type="PackedScene" uid="uid://cjlhdaj3yf8r2" path="res://entidades/prota.tscn" id="1_1lcfh"]
+[ext_resource type="Script" uid="uid://bi2ydb18fvoln" path="res://niveles/nivel_base.gd" id="1_afcu0"]
+[ext_resource type="TileSet" uid="uid://bmoyx76o563qp" path="res://niveles/nivel_facu_tileset.tres" id="2_gjx6g"]
+[ext_resource type="PackedScene" uid="uid://bsoeemh0g81v0" path="res://niveles/puerta.tscn" id="3_uxl3a"]
+[ext_resource type="Script" uid="uid://cvgywae42igbg" path="res://niveles/health_bar.gd" id="5_nae6n"]
+
+[node name="NivelBase" type="Node2D" unique_id=1839569304]
+script = ExtResource("1_afcu0")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1043624319]
+tile_set = ExtResource("2_gjx6g")
+
+[node name="prota" parent="." unique_id=530882632 instance=ExtResource("1_1lcfh")]
+position = Vector2(98, 54)
+
+[node name="Camera2D" type="Camera2D" parent="prota" unique_id=211500255]
+
+[node name="puerta" parent="." unique_id=472903741 instance=ExtResource("3_uxl3a")]
+position = Vector2(282, 54)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1981915023]
+
+[node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=854798754]
+offset_right = 55.0
+offset_bottom = 27.0
+script = ExtResource("5_nae6n")
+
+[connection signal="gain_health" from="prota" to="HUD/HealthBar" method="increase_health"]
+[connection signal="lower_health" from="prota" to="HUD/HealthBar" method="decrease_health"]
+[connection signal="puerta_pisada" from="puerta" to="." method="_on_puerta_puerta_pisada"]
