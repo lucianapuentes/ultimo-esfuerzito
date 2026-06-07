@@ -10,6 +10,7 @@
 script = ExtResource("1_afcu0")
 
 [node name="NoNavegableTilemap" type="TileMapLayer" parent="." unique_id=1875312453]
+tile_set = ExtResource("2_gjx6g")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1043624319]
 tile_set = ExtResource("2_gjx6g")

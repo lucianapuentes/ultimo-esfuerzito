@@ -61,6 +61,7 @@ height = 14.0
 
 [node name="Enemigo" type="CharacterBody2D" unique_id=1866036199]
 script = ExtResource("1_qp0j2")
+speed = 50
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=390082705]
 path_desired_distance = 40.0
@@ -69,7 +70,7 @@ path_desired_distance = 40.0
 modulate = Color(0.33859167, 0.41, 0.3321, 1)
 sprite_frames = SubResource("SpriteFrames_wnkuf")
 autoplay = "default"
-frame_progress = 0.9922027
+frame_progress = 0.40759435
 
 [node name="Timer" type="Timer" parent="." unique_id=1111069704]
 wait_time = 0.5
