@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://du3k0vhti3row" path="res://entidades/HurtBox.gd" id="3_2o2c4"]
 [ext_resource type="Script" uid="uid://b1comvabhhvfu" path="res://entidades/Hitbox.gd" id="4_moi64"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_moi64"]
+radius = 2.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o2c4"]
 size = Vector2(12, 12)
 
@@ -26,6 +29,9 @@ texture = ExtResource("2_2o2c4")
 wait_time = 0.5
 autostart = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1828966355]
+shape = SubResource("CircleShape2D_moi64")
+
 [node name="HurtBox" type="Area2D" parent="." unique_id=1053001245]
 script = ExtResource("3_2o2c4")
 propietario = "enemigo"
@@ -33,7 +39,7 @@ metadata/_custom_type_script = "uid://du3k0vhti3row"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=334471429]
 shape = SubResource("RectangleShape2D_2o2c4")
-debug_color = Color(0.9899234, 0, 0.2902062, 0.41960785)
+debug_color = Color(0.9969707, 0, 0.16117647, 0.41960785)
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=772786983]
 script = ExtResource("4_moi64")
