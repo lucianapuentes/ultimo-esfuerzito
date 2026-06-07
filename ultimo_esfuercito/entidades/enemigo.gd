@@ -16,3 +16,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	navigation_agent_2d.target_position=player.global_position
+
+
+func _on_health_handler_entity_died() -> void:
+	queue_free()

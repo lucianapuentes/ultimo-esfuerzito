@@ -7,7 +7,11 @@ signal health_restored
 
 const MAX_HP = 100
 
-var current_health = 100
+var current_health = 100:
+	set(value):
+		current_health = value
+		if current_health <= 0:
+			entity_died.emit()
 
 
 func take_damage(dam:float)->void:

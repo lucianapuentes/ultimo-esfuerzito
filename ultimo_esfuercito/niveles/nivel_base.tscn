@@ -17,6 +17,8 @@ tile_set = ExtResource("2_gjx6g")
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=870250699]
 tile_set = ExtResource("2_gjx6g")
 
+[node name="EnemyContainer" type="Node2D" parent="." unique_id=1719762407]
+
 [node name="prota" parent="." unique_id=530882632 instance=ExtResource("1_1lcfh")]
 position = Vector2(98, 54)
 

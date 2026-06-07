@@ -1,18 +1,63 @@
 [gd_scene format=3 uid="uid://wxckjrpwolf"]
 
 [ext_resource type="Script" uid="uid://c15lg215w56af" path="res://entidades/enemigo.gd" id="1_qp0j2"]
-[ext_resource type="Texture2D" uid="uid://cn14c5wf0sx5g" path="res://icon.svg" id="2_2o2c4"]
+[ext_resource type="Texture2D" uid="uid://bu2hav82yc86w" path="res://Eris Esra's Character Template 4.0/16x16/16x16 Run-Sheet.png" id="2_gk310"]
 [ext_resource type="Script" uid="uid://du3k0vhti3row" path="res://entidades/HurtBox.gd" id="3_2o2c4"]
 [ext_resource type="Script" uid="uid://b1comvabhhvfu" path="res://entidades/Hitbox.gd" id="4_moi64"]
+[ext_resource type="Script" uid="uid://b6x7jijvyk0xh" path="res://entidades/health_handler.gd" id="5_gk310"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7crtf"]
+atlas = ExtResource("2_gk310")
+region = Rect2(100, 20, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy8gs"]
+atlas = ExtResource("2_gk310")
+region = Rect2(20, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wuqs"]
+atlas = ExtResource("2_gk310")
+region = Rect2(40, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsg88"]
+atlas = ExtResource("2_gk310")
+region = Rect2(80, 20, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrbqq"]
+atlas = ExtResource("2_gk310")
+region = Rect2(80, 40, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wnkuf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7crtf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy8gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wuqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsg88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrbqq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_moi64"]
 radius = 2.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o2c4"]
-size = Vector2(12, 12)
+size = Vector2(12, 18)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gk310"]
-radius = 5.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gk310"]
+radius = 2.0
+height = 14.0
 
 [node name="Enemigo" type="CharacterBody2D" unique_id=1866036199]
 script = ExtResource("1_qp0j2")
@@ -20,10 +65,11 @@ script = ExtResource("1_qp0j2")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=390082705]
 path_desired_distance = 40.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=328836541]
-position = Vector2(-4.7683716e-07, 0)
-scale = Vector2(0.09375001, 0.09375)
-texture = ExtResource("2_2o2c4")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1018378886]
+modulate = Color(0.33859167, 0.41, 0.3321, 1)
+sprite_frames = SubResource("SpriteFrames_wnkuf")
+autoplay = "default"
+frame_progress = 0.9922027
 
 [node name="Timer" type="Timer" parent="." unique_id=1111069704]
 wait_time = 0.5
@@ -39,7 +85,7 @@ metadata/_custom_type_script = "uid://du3k0vhti3row"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=334471429]
 shape = SubResource("RectangleShape2D_2o2c4")
-debug_color = Color(0.9969707, 0, 0.16117647, 0.41960785)
+debug_color = Color(0.648746, 0.51922977, 1.92523e-07, 0.41960785)
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=772786983]
 script = ExtResource("4_moi64")
@@ -47,6 +93,13 @@ propietario = "enemigo"
 metadata/_custom_type_script = "uid://b1comvabhhvfu"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1495778985]
-shape = SubResource("CircleShape2D_gk310")
+shape = SubResource("CapsuleShape2D_gk310")
+debug_color = Color(0.99518174, 0, 0.21747762, 0.41960785)
+
+[node name="HealthHandler" type="Node" parent="." unique_id=1654634907]
+script = ExtResource("5_gk310")
+metadata/_custom_type_script = "uid://b6x7jijvyk0xh"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="entity_hit" from="HurtBox" to="HealthHandler" method="take_damage"]
+[connection signal="entity_died" from="HealthHandler" to="." method="_on_health_handler_entity_died"]
