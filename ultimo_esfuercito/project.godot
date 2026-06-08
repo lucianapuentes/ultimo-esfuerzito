@@ -31,6 +31,10 @@ window/stretch/mode="viewport"
 player=""
 mapa=""
 
+[gui]
+
+theme/custom_font="uid://cdyfjyta87hyv"
+
 [input]
 
 izquierda={

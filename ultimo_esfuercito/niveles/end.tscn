@@ -14,4 +14,7 @@ offset_right = 87.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Te egresaste o algo así"
+text = "Te egresaste 
+(o algo así)"
+horizontal_alignment = 1
+vertical_alignment = 1
