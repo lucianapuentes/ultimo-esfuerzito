@@ -2,16 +2,20 @@ class_name HealthHandler
 extends Node
 
 signal entity_died
-signal damage_taken
-signal health_restored
+signal damage_taken(dmg)
+signal health_restored(dmg)
 
 @export var max_hp = 100
 
-var current_health = 100:
+var current_health:
 	set(value):
 		current_health = value
+		print(current_health)
 		if current_health <= 0:
 			entity_died.emit()
+
+func _ready() -> void:
+	current_health = max_hp
 
 
 func take_damage(dam:float)->void:

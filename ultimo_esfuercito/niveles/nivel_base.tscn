@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bsoeemh0g81v0" path="res://niveles/puerta.tscn" id="3_uxl3a"]
 [ext_resource type="Script" uid="uid://cvgywae42igbg" path="res://niveles/health_bar.gd" id="5_nae6n"]
 [ext_resource type="AudioStream" uid="uid://c457ah8hhfob" path="res://music/Master Disorder.mp3" id="6_aumsh"]
+[ext_resource type="Script" uid="uid://d2rdlb6k4fnmk" path="res://niveles/restart_container.gd" id="6_t5dyb"]
 
 [node name="NivelBase" type="Node2D" unique_id=1839569304]
 script = ExtResource("1_afcu0")
@@ -40,9 +41,34 @@ offset_top = 5.0
 offset_right = 43.75
 offset_bottom = 19.0
 grow_horizontal = 2
-value = 100.0
+max_value = 30.0
+value = 30.0
 show_percentage = false
 script = ExtResource("5_nae6n")
+
+[node name="RestartContainer" type="VBoxContainer" parent="HUD" unique_id=2142312968]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -30.0
+offset_right = 144.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_t5dyb")
+
+[node name="Label" type="Label" parent="HUD/RestartContainer" unique_id=1546502734]
+layout_mode = 2
+text = "Te mató analisis 2"
+
+[node name="Button" type="Button" parent="HUD/RestartContainer" unique_id=540781151]
+layout_mode = 2
+text = "Reiniciar 
+el semestre"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1381473479]
 stream = ExtResource("6_aumsh")
@@ -50,4 +76,6 @@ autoplay = true
 
 [connection signal="gain_health" from="prota" to="HUD/HealthBar" method="increase_health"]
 [connection signal="lower_health" from="prota" to="HUD/HealthBar" method="decrease_health"]
+[connection signal="player_died" from="prota" to="HUD/RestartContainer" method="_on_prota_player_died"]
 [connection signal="puerta_pisada" from="puerta" to="." method="_on_puerta_puerta_pisada"]
+[connection signal="pressed" from="HUD/RestartContainer/Button" to="HUD/RestartContainer" method="_on_button_pressed"]

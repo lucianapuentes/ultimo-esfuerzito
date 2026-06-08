@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal lower_health(value : float)
 signal gain_health(value : float)
+signal player_died
 
 @onready var anim_tree = $AnimationTree
 @onready var anim_state = anim_tree.get("parameters/playback")
@@ -45,7 +46,8 @@ func _ready() -> void:
 
 
 func _on_health_handler_entity_died() -> void:
-	pass # Replace with function body.
+	player_died.emit()
+	queue_free()
 
 
 func _on_health_handler_damage_taken(current_health:float) -> void:
