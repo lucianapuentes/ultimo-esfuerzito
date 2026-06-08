@@ -16,7 +16,6 @@ var current_health = 100:
 
 func take_damage(dam:float)->void:
 	current_health=current_health-dam
-	print("recibi daño", dam)
 	damage_taken.emit(current_health)
 
 func restore_health(heal:float)->void:

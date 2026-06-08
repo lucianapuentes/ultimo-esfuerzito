@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="ultimo_esfuercito"
 config/tags=PackedStringArray("club")
-run/main_scene="res://niveles/juego.tscn"
+run/main_scene="uid://qltwck1lp7j6"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
