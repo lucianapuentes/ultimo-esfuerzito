@@ -3,9 +3,15 @@
 [ext_resource type="Script" uid="uid://cau5i72vb0afr" path="res://entidades/proyectil.gd" id="1_m3cyk"]
 [ext_resource type="Texture2D" uid="uid://cfok4v3v20uvi" path="res://numSprites/Number0 7x10.png" id="2_4dc7l"]
 [ext_resource type="Script" uid="uid://b1comvabhhvfu" path="res://entidades/Hitbox.gd" id="3_4dc7l"]
+[ext_resource type="AudioStream" uid="uid://c3yeke0pyi6ay" path="res://music/Bluezone_BC0301_tiny_gears_small_mechanism_click_003.wav" id="4_ywll5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4dc7l"]
 size = Vector2(8, 10)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y5okx"]
+random_pitch = 1.0687443
+streams_count = 1
+stream_0/stream = ExtResource("4_ywll5")
 
 [node name="Proyectil" type="CharacterBody2D" unique_id=1843771128]
 script = ExtResource("1_m3cyk")
@@ -20,3 +26,7 @@ metadata/_custom_type_script = "uid://b1comvabhhvfu"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=556646264]
 shape = SubResource("RectangleShape2D_4dc7l")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=861396280]
+stream = SubResource("AudioStreamRandomizer_y5okx")
+autoplay = true

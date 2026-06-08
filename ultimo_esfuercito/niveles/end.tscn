@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://4xd86ql2jpo7"]
+
+[node name="End" type="CanvasLayer" unique_id=716312662]
+
+[node name="Label" type="Label" parent="." unique_id=1821225544]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -11.5
+offset_right = 87.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Te egresaste o algo así"

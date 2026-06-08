@@ -48,6 +48,3 @@ limit_bottom = 192
 [node name="puerta" parent="." index="5" unique_id=472903741]
 position = Vector2(312, -184)
 proxima_escena = ExtResource("3_2iqk4")
-
-[node name="HealthBar" parent="HUD" parent_id_path=PackedInt32Array(1981915023) index="0" unique_id=854798754]
-value = 100.0

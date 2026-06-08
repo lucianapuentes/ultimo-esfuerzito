@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://bmoyx76o563qp" path="res://niveles/nivel_facu_tileset.tres" id="2_gjx6g"]
 [ext_resource type="PackedScene" uid="uid://bsoeemh0g81v0" path="res://niveles/puerta.tscn" id="3_uxl3a"]
 [ext_resource type="Script" uid="uid://cvgywae42igbg" path="res://niveles/health_bar.gd" id="5_nae6n"]
+[ext_resource type="AudioStream" uid="uid://c457ah8hhfob" path="res://music/Master Disorder.mp3" id="6_aumsh"]
 
 [node name="NivelBase" type="Node2D" unique_id=1839569304]
 script = ExtResource("1_afcu0")
@@ -31,9 +32,21 @@ position = Vector2(282, 54)
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1981915023]
 
 [node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=854798754]
-offset_right = 55.0
-offset_bottom = 27.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.75
+offset_top = 5.0
+offset_right = 43.75
+offset_bottom = 19.0
+grow_horizontal = 2
+value = 100.0
+show_percentage = false
 script = ExtResource("5_nae6n")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1381473479]
+stream = ExtResource("6_aumsh")
+autoplay = true
 
 [connection signal="gain_health" from="prota" to="HUD/HealthBar" method="increase_health"]
 [connection signal="lower_health" from="prota" to="HUD/HealthBar" method="decrease_health"]

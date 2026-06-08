@@ -1,7 +1,7 @@
 # Proyectil.gd
 extends CharacterBody2D
 
-var velocidad := 300.0
+var velocidad := 200.0
 var direccion := Vector2.RIGHT
 var numero := 0
 
