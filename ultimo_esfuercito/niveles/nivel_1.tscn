@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bofmm725b0ur" path="res://niveles/nivel_base.tscn" id="1_d4ujm"]
 [ext_resource type="PackedScene" uid="uid://wxckjrpwolf" path="res://entidades/enemigo.tscn" id="2_w6qyd"]
-[ext_resource type="PackedScene" uid="uid://c6eth760wmlt4" path="res://niveles/nivel_ultimo.tscn" id="3_2iqk4"]
+[ext_resource type="PackedScene" uid="uid://dgfdl3kgum7pf" path="res://niveles/nivel_2.tscn" id="3_2iqk4"]
 
 [node name="Nivel1" unique_id=1839569304 instance=ExtResource("1_d4ujm")]
 

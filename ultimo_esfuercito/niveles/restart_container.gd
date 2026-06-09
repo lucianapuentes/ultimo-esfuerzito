@@ -1,7 +1,5 @@
 extends VBoxContainer
 
-const MAIN_MENU = preload("uid://qltwck1lp7j6")
-
 func _on_prota_player_died() -> void:
 	show()
 
